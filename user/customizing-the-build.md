@@ -131,7 +131,7 @@ Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth
 
 ### Linux
 
-[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty and Xenial images.
+[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty,  Xenial and Bionic images.
 
 ### macOS
 
@@ -173,6 +173,20 @@ git:
 {: data-file=".travis.yml"}
 
 where `skip-worktree-map-file` is a path to the existing file in the current repository with data you'd like to put into `$GIT_DIR/info/sparse-checkout` file of [format described in Git documentation](https://git-scm.com/docs/git-read-tree#_sparse_checkout).
+
+
+## Disabling git clone
+
+In some workflows, like [build stages](https://docs.travis-ci.com/user/build-stages/#what-are-build-stages), it might be beneficial to skip the automatic `git clone` step.
+
+You can do this by adding:  
+
+```yaml
+git:
+  clone: false
+```
+
+> Note that if you use this option, the `TRAVIS_COMMIT_MESSAGE` environment variable will not be defined.
 
 ## Building Specific Branches
 
@@ -554,7 +568,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-You can also insall a custom PHP version in a Node.js build like this:
+You can also install a custom PHP version in a Node.js build like this:
 ```yaml
 language: node_js
 
