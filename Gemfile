@@ -11,7 +11,7 @@ gem 'puma'
 gem 'pry', group: :test
 gem 'rack-jekyll'
 gem 'rack-ssl-enforcer'
-gem 'rake'
+gem 'rake', '>= 12.3.3'
 gem 'rdiscount', '>=2.2.0.1'
 gem 'rubocop', group: :test
 
@@ -24,7 +24,7 @@ gem "middleman"
 gem "middleman-syntax"
 
 # Plugin for middleman to generate GitHub pages
-gem 'middleman-gh-pages'
+gem 'middleman-gh-pages', '>= 0.3.1'
 
 # Live-reloading plugin
 gem "middleman-livereload"
